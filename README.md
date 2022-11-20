@@ -27,11 +27,11 @@ In order to conform with the norms of LL Grammar, it should pass the pairwise di
 The grammar for my language is pairwise disjoint. It checks for every possible terminal symbol for each rule a
 nonterminal has and makes sure they are all unique.Also, every first token in our grammar is unique which passes the pairwise disjoint test.
 
-My grammar does not have any rules that cause left hand recursion, in which a nonterminal calls itself as the first character. No state here is calling itself, which proves there is no left hand recursion. In our grammar, there does not exist a non terminal that has multiple rules for one terminal. 
+My grammar does not have any rules that cause left hand recursion, in which a nonterminal calls itself as the first character. No state here is calling itself, which proves there is no left hand recursion. In my grammar, there does not exist a non terminal that has multiple rules for one terminal. 
 
 D) **Ambiguity Check** 
 
-Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. Our grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
+Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. My grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
 
 E) **Code in files** 
 
