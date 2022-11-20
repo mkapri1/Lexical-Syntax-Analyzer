@@ -1,4 +1,8 @@
-Rules for Recognizing all lexemes as their proper tokens
+# Test2 PLC
+
+**PLC Test2**
+
+A) Rules for Recognizing all lexemes as their proper tokens
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
 
@@ -7,98 +11,17 @@ Token: class of lexemes that match a pattern
 
 In this language, the type of tokens can be divided into few classes: keywords, identifiers, operators and punctuation, and delimiters.
 
+![Image (1)](https://user-images.githubusercontent.com/79378418/202880181-60ddfaf0-dcc2-475d-b20e-c3ba0fc30cff.jpeg)
+![2](https://user-images.githubusercontent.com/79378418/202880185-6dc50f98-3ccd-408b-a151-e31178a96928.jpeg)
 
+![Image (2)](https://user-images.githubusercontent.com/79378418/202880173-77e063fc-9326-420f-8b6a-0521883e6e52.jpeg)
+![Image (3)](https://user-images.githubusercontent.com/79378418/202880182-30979cea-3fda-481a-aca5-760e8fe2ad69.jpeg)
 
-Keywords        Token Code           Uses
+B) **EBNF Rules for my language**:
+![Untitled 2](https://user-images.githubusercontent.com/79378418/202880292-886454b7-8bb1-45b8-9cc7-20289d842fdf.jpg)
 
-int  
-long                  Integer Literal
-ROF             11(WHILE)                  To allow for loops
-$               12(IF)                Selection statements (if)
-&               13(ELSE)                Selection statements (else)
-#               14(BEGIN)
-@               15(BEGIN)
+C) **LL Grammar Test**
 
-Operators       Token Code          Uses
-+               21(ADD_OP)          
--               22(SUB_OP)
-*               23(MUL_OP)
-/               24(DIV_OP)
-%               25(MOD_OP)
-<               26(LESS_THAN)
->               27(GREATER_THAN)
-^               28(LESS_THAN_EQUAL)
-~               29(GREATER_THAN_EQUAL)
-==              30(EQUAL)
-!=              31(NOT_EQUAL)
-=               32(ASSIGN)
-
-Punctutation    Token Code          Uses
-;               33(END_STMT)        Way to separate multiple statements
-
-Delimiters      Token Code          Uses
-(               34(LEFT_PAREN)      Parenthesis
-)               35(RIGHT_PAREN)     Parenthesis
-
-                Token Code          Uses
-Identifiers     11(IDENT)           Sequence of one or more letters of digits
-EOF             -1(EOF)             End of file
-
-Regular Expressions:
-
-INT_LIT: int
-ADD_OP: +
-SUB_OP: -
-WHILE: "ROF"
-IF: "$"
-ELSE: "&"
-BEGIN: "#"
-END: "@"
-OPEN_PAREN: "("
-CLOSE_PAREN: ")"
-
-LETTER = a|b|c|...|z|A|B...|Z
-DIGIT = 0|1|2..|9
-
-
-Punctuation: ";"
-
-Variable type: var
-Variable names: [_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z]?[_a-zA-Z]?
-
-Different sizes:
-1 BYTE: [0-9]+_B
-2 BYTES: [0-9]+_S
-4 BYTES: [0-9]+_INT
-8 BYTES: [0-9]+_L
-
-
-EBNF Rules for my language:
-
-<program> --> `#`<stmt_list>`@`
-<stmt_list> --> <stmt> `;` {<stmt>`;`}
-<stmt> --> <if_stmt> 
-<stmt> --><while_loop> 
-<stmt> --> <assignment>
-<stmt> --> <block>
-<stmt> --> <declare> 
-<int_dec> --> `I`|`S`|`B`|`L`
-<declare> --> `id` <int_dec> 
-<block> --> `{`<stmt>`}`
-<if_stmt> --> `$` `(`<bool_expr> `)` <stmt> `&` <stmt>
-<while_loop> --> `ROF` `(` <bool_expr> `)` <stmt>
-<assignment> --> `id` `=` <expr> `;`
-<expr> --> <term> {(`*`|`/`|`%`)} <term>
-<term> -->  <factor> {(`+`|`-`)} <factor>
-<factor> --> `id`| `int_lit`| `(`<expr>`)`
-
-<bool_expr> --> <rel> {(`!=`|`==`)} <rel>
-<rel> --> <bex> {(`<`|`>`|`~`|`^`)} <bex>
-<bex> --> <bterm> {(`*`|`/`|`%`)} <bterm>
-<bterm> --> <bfactor> {(`+`|`-`)} <bfactor>
-<bfactor> --> `id`|`int_lit`|`bool_lit`|`(`<bex>`)`
-
-C. LL Grammar Test
 In order to conform with the norms of LL Grammar, it should pass the pairwise disjoint test and no LHR.
 
 The grammar for my language is pairwise disjoint. It checks for every possible terminal symbol for each rule a
@@ -106,16 +29,18 @@ nonterminal has and makes sure they are all unique.Also, every first token in ou
 
 My grammar does not have any rules that cause left hand recursion, in which a nonterminal calls itself as the first character. No state here is calling itself, which proves there is no left hand recursion. In our grammar, there does not exist a non terminal that has multiple rules for one terminal. 
 
-D. Ambiguity Check
+D) **Ambiguity Check** 
+
 Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. Our grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
 
+E) **Code in files** 
 
+F) **Code in files**. 
 
+G) **Test Files in repository**. 
 
+H) **LR Parse Table**:
+!![Untitled 4](https://user-images.githubusercontent.com/79378418/202880551-e21cd001-1605-4c57-b5fc-c071e2b2e4ec.jpg)
+![Untitled 5](https://user-images.githubusercontent.com/79378418/202880562-55688789-f2b4-4cc8-8283-3b87a4f1194e.jpg)
 
-
-
-
-
-
-
+![LR3](https://user-images.githubusercontent.com/79378418/202880534-bf40a4c6-698a-4399-bcad-acfd03703587.jpg)
