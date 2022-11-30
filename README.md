@@ -18,7 +18,30 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 ![Image (3)](https://user-images.githubusercontent.com/79378418/202880182-30979cea-3fda-481a-aca5-760e8fe2ad69.jpeg)
 
 B) **EBNF Rules for my language**:
-![Untitled 2](https://user-images.githubusercontent.com/79378418/202880292-886454b7-8bb1-45b8-9cc7-20289d842fdf.jpg)
+
+<program> --> `#`<stmt_list>`@`
+<stmt_list> --> <stmt> `;` {<stmt>`;`}
+<stmt> --> <if_stmt> 
+<stmt> --><while_loop> 
+<stmt> --> <assignment>
+<stmt> --> <block>
+<stmt> --> <declare> 
+<int_dec> --> `I`|`S`|`B`|`L`
+<declare> --> <int_dec> `id` 
+<block> --> `{`<stmt>`}`
+<if_stmt> --> `$` `(`<bool_expr> `)` <stmt> `&` <stmt>
+<while_loop> --> `ROF` `(` <bool_expr> `)` <stmt>
+<assignment> --> `id` `=` <expr> `;`
+<expr> --> <term> {(`*`|`/`|`%`)} <term>
+<term> -->  <factor> {(`+`|`-`)} <factor>
+<factor> --> `id`| `int_lit`| `(`<expr>`)`
+
+<bool_expr> --> <rel> {(`!=`|`==`)} <rel>
+<rel> --> <bex> {(`<`|`>`|`~`|`^`)} <bex>
+<bex> --> <bterm> {(`*`|`/`|`%`)} <bterm>
+<bterm> --> <bfactor> {(`+`|`-`)} <bfactor>
+<bfactor> --> `id`|`int_lit`|`bool_lit`|`(`<bex>`)`
+
 
 C) **LL Grammar Test**
 
