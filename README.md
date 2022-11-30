@@ -19,6 +19,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 
 B) **EBNF Rules for my language**:
 
+````
 <program> --> `#`<stmt_list>`@`
 <stmt_list> --> <stmt> `;` {<stmt>`;`}
 <stmt> --> <if_stmt> 
@@ -41,6 +42,8 @@ B) **EBNF Rules for my language**:
 <bex> --> <bterm> {(`*`|`/`|`%`)} <bterm>
 <bterm> --> <bfactor> {(`+`|`-`)} <bfactor>
 <bfactor> --> `id`|`int_lit`|`bool_lit`|`(`<bex>`)`
+
+````
 
 
 C) **LL Grammar Test**
