@@ -2,7 +2,7 @@
 
 
 
-#**A)Rules for Recognizing all lexemes as their proper tokens**
+##A)Rules for Recognizing all lexemes as their proper tokens
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
 
@@ -43,7 +43,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |Right Paren| 21|
 |End of Statement (;)| 31|
 
-#B) **EBNF Rules for my language**:
+##B)EBNF Rules for my language:
 
 ````
 <program> --> `#`<stmt_list>`@`
@@ -72,7 +72,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 ````
 
 
-C) **LL Grammar Test**
+##C)LL Grammar Test
 
 In order to conform with the norms of LL Grammar, it should pass the pairwise disjoint test and no LHR.
 
@@ -81,7 +81,7 @@ nonterminal has and makes sure they are all unique.Also, every first token in ou
 
 My grammar does not have any rules that cause left hand recursion, in which a nonterminal calls itself as the first character. No state here is calling itself, which proves there is no left hand recursion. In my grammar, there does not exist a non terminal that has multiple rules for one terminal. 
 
-D) **Ambiguity Check** 
+##D)Ambiguity Check 
 
 Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. My grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
 
