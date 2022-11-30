@@ -68,7 +68,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |Not Equal| != |
 |Assignment| = |
 |Variable Names| [_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z]?[_a-zA-Z]?|
-|Different int sizes| 1 BYTE: [0-9]+B 2 BYTES: [0-9]+S 4 BYTES: [0-9]+INT 8 BYTES: [0-9]+L|
+|Different int sizes| 1 BYTE: [0-9]+B   2 BYTES: [0-9]+S   4 BYTES: [0-9]+INT   8 BYTES: [0-9]+L|
 
 
 
