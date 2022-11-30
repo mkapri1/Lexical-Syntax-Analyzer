@@ -1,8 +1,8 @@
-# Test2 PLC
+# Lexical and Syntax Analyzer for my programming language
 
-**PLC Test2**
 
-A) Rules for Recognizing all lexemes as their proper tokens
+
+**Rules for Recognizing all lexemes as their proper tokens**
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
 
