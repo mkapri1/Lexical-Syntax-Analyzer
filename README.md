@@ -1,4 +1,4 @@
-# Lexical and Syntax Analyzer for my programming language
+# Lexical and Syntax Analyzer 
 
 
 
