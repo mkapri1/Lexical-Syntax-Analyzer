@@ -26,13 +26,22 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 | Assignment | 15 |
 | Modulus | 22 |
 
+|Keywords| Token Codes|
+|--------|------------|
+|int| 10
+|ROF| 32|
+|$| 33|
+|&| 34|
+|Start| 29|
+|Finish| 30|
 
-
-![Image (1)](https://user-images.githubusercontent.com/79378418/202880181-60ddfaf0-dcc2-475d-b20e-c3ba0fc30cff.jpeg)
-![2](https://user-images.githubusercontent.com/79378418/202880185-6dc50f98-3ccd-408b-a151-e31178a96928.jpeg)
-
-![Image (2)](https://user-images.githubusercontent.com/79378418/202880173-77e063fc-9326-420f-8b6a-0521883e6e52.jpeg)
-![Image (3)](https://user-images.githubusercontent.com/79378418/202880182-30979cea-3fda-481a-aca5-760e8fe2ad69.jpeg)
+|Others|Token Codes|
+|------|-----------|
+|Identifiers| 11|
+|EOF| -1|
+|Left Paren| 20|
+|Right Paren| 21|
+|End of Statement (;)| 31|
 
 B) **EBNF Rules for my language**:
 
