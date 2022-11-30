@@ -11,6 +11,13 @@ Token: class of lexemes that match a pattern
 
 In this language, the type of tokens can be divided into few classes: keywords, identifiers, operators and punctuation, and delimiters.
 
+|Operators | Token Codes |
+| ---------|-------------|
+| Addition |  16
+|----------| ------------|
+| Subtraction| 17        |
+
+
 ![Image (1)](https://user-images.githubusercontent.com/79378418/202880181-60ddfaf0-dcc2-475d-b20e-c3ba0fc30cff.jpeg)
 ![2](https://user-images.githubusercontent.com/79378418/202880185-6dc50f98-3ccd-408b-a151-e31178a96928.jpeg)
 
