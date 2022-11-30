@@ -14,8 +14,18 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |Operators | Token Codes |
 | ---------|-------------|
 | Addition |  16
-|----------| ------------|
 | Subtraction| 17        |
+| Multiplication| 18      |
+| Division | 19 |
+| Less than | 23 |
+| Greater than | 24 |
+| Less than equal to | 25 |
+| Greater than equal to | 26 |
+| Equal | 27 |
+| Not Equal to |28 |
+| Assignment | 15 |
+| Modulus | 22 |
+
 
 
 ![Image (1)](https://user-images.githubusercontent.com/79378418/202880181-60ddfaf0-dcc2-475d-b20e-c3ba0fc30cff.jpeg)
