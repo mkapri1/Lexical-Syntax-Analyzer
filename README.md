@@ -77,7 +77,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 ## B)EBNF Rules for my language:
 
 ````
-<program> --> `#`<stmt_list>`@`
+<program> --> `Start`<stmt_list>`Finish`
 <stmt_list> --> <stmt> `;` {<stmt>`;`}
 <stmt> --> <if_stmt> 
 <stmt> --><while_loop> 
