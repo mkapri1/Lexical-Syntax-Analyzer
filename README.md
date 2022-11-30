@@ -2,7 +2,7 @@
 
 
 
-**Rules for Recognizing all lexemes as their proper tokens**
+#**A)Rules for Recognizing all lexemes as their proper tokens**
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
 
@@ -43,7 +43,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |Right Paren| 21|
 |End of Statement (;)| 31|
 
-B) **EBNF Rules for my language**:
+#B) **EBNF Rules for my language**:
 
 ````
 <program> --> `#`<stmt_list>`@`
