@@ -117,7 +117,7 @@ My grammar does not have any rules that cause left hand recursion, in which a no
 Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. My grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
 
 ## **LR Parse Table**:
-!![Untitled 4](https://user-images.githubusercontent.com/79378418/202880551-e21cd001-1605-4c57-b5fc-c071e2b2e4ec.jpg)
+![Untitled 4](https://user-images.githubusercontent.com/79378418/202880551-e21cd001-1605-4c57-b5fc-c071e2b2e4ec.jpg)
 ![Untitled 5](https://user-images.githubusercontent.com/79378418/202880562-55688789-f2b4-4cc8-8283-3b87a4f1194e.jpg)
 
 ![LR3](https://user-images.githubusercontent.com/79378418/202880534-bf40a4c6-698a-4399-bcad-acfd03703587.jpg)
