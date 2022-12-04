@@ -2,9 +2,6 @@
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 class LexicalAnalyzer {
     
@@ -18,8 +15,6 @@ class LexicalAnalyzer {
     static int lexLen; //length of lexeme
     static int token; 
     static int nextToken;
-    static ArrayList<char[]> lexemes = new ArrayList<>();
-    static ArrayList<char[]> tokens = new ArrayList<>();
 
     static FileReader fr = null; //file reader for reading the input from files
     
@@ -34,10 +29,10 @@ class LexicalAnalyzer {
     /* 
     * Token codes
     */
-    final static int INT_LIT = 10;
-    final static int INT_LONG = 11;
-    final static int INT_SHORT = 12;
-    final static int INT_WORD = 13;
+    final static int INT = 10;
+    final static int SHORT = 11;
+    final static int BYTE = 12;
+    final static int LONG = 13;
 
     final static int IDENT=  14;
 
@@ -50,7 +45,7 @@ class LexicalAnalyzer {
     final static int RIGHT_PAREN= 21;
     final static int MODULUS = 22;
 
-    final static int EOF = -1;
+
     final static int LESS_THAN = 23;
     final static int GREATER_THAN = 24;
     final static int LESS_THAN_EQUALTO = 25;
@@ -61,14 +56,22 @@ class LexicalAnalyzer {
     final static int BEGIN = 29;
     final static int END = 30;
     final static int END_OF_STATEMENT = 31;
+    final static int EOF = -1;
   
     
     final static int WHILE = 32;
     final static int IF = 33;
     final static int ELSE = 34;
 
+    final static int LEFT_CURLY = 40;
+    final static int RIGHT_CURLY = 41;
+
+    final static int BOOL_LIT = 43;
+    final static int UNDERSCORE = 44;
+    final static int VAR = 45;
+
     /*
-     *  lookup:a function to look up operators and
+     *  lookup: A function to look up operators and
      *  parentheses and return the token for it
      */
     public static int lookup(char ch){
@@ -114,6 +117,12 @@ class LexicalAnalyzer {
                 nextToken = MODULUS;
             case '=':
                 addChar();;
+                if(nextChar == '!'){
+                    nextToken = NOT_EQUAL_TO;
+                }
+                if(nextChar == '='){
+                    nextToken = EQUAL_TO;
+                }
                 nextToken = ASSIGN_OP;
             case ';':
                 addChar();;
@@ -126,14 +135,14 @@ class LexicalAnalyzer {
                 nextToken = END;
                 
             default:
-                System.out.println("Error, Unknown Symbol Found");
-                System.exit(0);
+                addChar();
+                nextToken = EOF;
+                break;
         }
         return nextToken;
-
-
     }
 
+    //Method to add characters of a given lexeme
     public static void addChar(){
         if(lexLen<=98){
             lexeme[lexLen++] = nextChar;
@@ -145,10 +154,10 @@ class LexicalAnalyzer {
         }
 
     }
-    //checking digits
+   
+    //checking digits and letters to determine char class
     public static void getChar() throws IOException{
         System.out.println();
-
         int i;
         if((i = fr.read()) != -1){
             if(Character.isLetter((char)i) || (char)i == '_'){
@@ -165,15 +174,16 @@ class LexicalAnalyzer {
         else{
             charClass = EOF;
         }
-
-
-
     }
+
+    //to remove white spaces
     public static void getNonBlank() throws IOException{
         while(Character.isWhitespace(nextChar)){
             getChar();
         }
     }
+    
+    //This method returns the length of a lexeme
     public static int getLexLength(char[] charArray){
         int length =0;
         for(char c : charArray){
@@ -186,82 +196,112 @@ class LexicalAnalyzer {
         return length;
     }
 
-    
-
+    //Method to determine the type of token
     public static int lex() throws IOException{
-        lexLen = 0;
-	 getNonBlank();
-     int x;
-	 switch (charClass) {
-		/* Identifiers */
-		 case LETTER:
-			 addChar();
-			 getChar();
-			 while (charClass == LETTER) {
-				 addChar();
-				 getChar();
-			 }
-             int lexLength = getLexLength(lexeme);
+        lexLen = getLexLength(lexeme);
+        String lexemeString = new String(lexeme);
+        getNonBlank();
+        switch (charClass) {
+            
+            /* Identifiers */
+            case LETTER:
+                addChar();
+                getChar();
+                while (charClass == LETTER || charClass == UNDERSCORE && lexLen >=6 || lexLen <=8 ) {
+                    addChar();
+                    getChar();
+                }
 
-             if(lexLength < 6){
-                System.out.println("Error- Lexeme too short");
-                System.exit(0);
-             }
-             else if (lexLength >8){
-                System.out.println("Error-Lexeme too long");
-                System.exit(0);
-             }
-			 nextToken = IDENT;
-			 break;
-		/* Integer literals */
-		 case DIGIT:
-			 addChar();
-			 getChar();
-			 while (charClass == DIGIT) {
-				 addChar();
-				 getChar();
-             }
-			 if(charClass == LETTER)
-             { 
-             if(nextChar == 'S'){
-                nextToken = INT_SHORT; }
-             else if(nextChar == 'B'){
-                nextToken = INT_LIT;
-             }
-             else if(nextChar == 'L'){
-                nextToken = INT_LONG;
-             }
-             else if(nextChar == 'W'){
-                nextToken = INT_WORD;
-             }
-              addChar();
-             getChar(); }
-		 	break;
-        
-        
-		/* Parentheses and operators */
-		case UNKNOWN:
-             
-			 lookup(nextChar);
-			 getChar();
-			 break;
-			
-        /* EOF */
-        case EOF:
-			 nextToken = EOF;
-			 lexeme[0] = 'E';
-			 lexeme[1] = 'O';
-			 lexeme[2] = 'F';
-			 lexeme[3] = '\0';
-		 	break;
+                if(lexemeString.equals("ROF")){
+                    nextToken = WHILE;
+                }
+                else if(lexemeString.equals("$")){
+                    nextToken = IF;
+                }
+                else if(lexemeString.equals("&")){
+                    nextToken = ELSE;
+                }
+                else if(lexemeString.equals("#")){
+                    nextToken = BEGIN;
+                }
+                else if(lexemeString.equals("@")){
+                    nextToken = END;
+                }
+                else if(lexemeString.equals("varie")){
+                    nextChar = VAR;
+                }
+                else if(lexLen >= 6 && lexLen <=8){
+                    if(lexLen < 6){
+                        System.out.println("Error- Lexeme too short");
+                        System.exit(0);
+                    }
+                    else if (lexLen >8){
+                        System.out.println("Error-Lexeme too long");
+                        System.exit(0);
+                    }
+                    nextToken = IDENT;
+                }
+                else{
+                    nextToken = UNKNOWN;
+                }
+                break;
 
+            /* Integer literals */
+            case DIGIT:
+                addChar();
+                getChar();
+                while (charClass == DIGIT || charClass == LETTER) {
+                    addChar();
+                    getChar();
+                }
+                if(lexeme[(lexeme.length) -1] == 'I'){
+                    nextToken = INT;
+                }
+                else if(lexeme[(lexeme.length) -1] == 'S'){
+                    nextToken = SHORT;
+                }
+                else if(lexeme[(lexeme.length) -1] == 'B'){
+                    nextToken = BYTE;
+                }
+                else if(lexeme[(lexeme.length) -1] == 'L'){
+                    nextToken = LONG;
+                }
+                else if(charClass == UNKNOWN){
+                    nextToken = UNKNOWN;
+                }
+                break;
+        
+            case UNKNOWN:
+                
+                lookup(nextChar);
+                getChar();
+                break;
+                
+            /* EOF */
+            case EOF:
+                nextToken = EOF;
+                lexeme[0] = 'E';
+                lexeme[1] = 'O';
+                lexeme[2] = 'F';
+                lexeme[3] = '\0';
+                break;
+
+        }
+        
+        if(nextToken == UNKNOWN || nextToken == EOF){
+            System.out.println("Unknown symbol entered");
+        }
+        else{
+            System.out.printf("Next token is %d, Next Lexeme is %s/n",nextToken,lexeme);
+        }
+        return nextToken;
     }
-    System.out.printf("Next token is %d",nextToken);
-    return nextToken;
+   
 
-}
+    //main driver method
     public static void main(String[] args) throws Exception{
-        File file = new File("file.txt");
+        //Input the file you want to run
+        File file = new File("test1.txt");
         fr = new FileReader(file);
         try (FileReader fr = new FileReader(file)) {
             if((fr.read()) == -1){
@@ -274,13 +314,10 @@ class LexicalAnalyzer {
                 }
                 while(nextToken != EOF);
             }
-            
         }
+    }    
 
-        }
-
-        
-    }
+}
 
 
 
