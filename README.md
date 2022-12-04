@@ -95,7 +95,6 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 <bterm> --> <bfactor> {(`+`|`-`)} <bfactor>
 <bfactor> --> `id`|`int_lit`|`bool_lit`|`(`<bex>`)`
 
-
 ````
 
 
