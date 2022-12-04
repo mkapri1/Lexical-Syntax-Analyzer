@@ -1,0 +1,6 @@
+hello world
+int hello;
+hello = 2;
+ROF(1>>2){
+    hello = hello *2 /6 +9
+}

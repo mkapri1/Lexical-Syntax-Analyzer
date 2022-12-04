@@ -1,0 +1,7 @@
+int banana;
+banana =0;
+(($banana<0){
+    banana = banana *10;
+} & {
+    banana = banana *7/6 + 100
+}
