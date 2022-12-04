@@ -77,19 +77,14 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 ## B)EBNF Rules for my language:
 
 ````
-<program> --> `Start`<stmt_list>`Finish`
-<stmt_list> --> <stmt> `;` {<stmt>`;`}
-<stmt> --> <if_stmt> 
-<stmt> --><while_loop> 
-<stmt> --> <assignment>
-<stmt> --> <block>
-<stmt> --> <declare> 
-<int_dec> --> `I`|`S`|`B`|`L`
-<declare> --> <int_dec> `id` 
-<block> --> `{`<stmt>`}`
-<if_stmt> --> `$` `(`<bool_expr> `)` <stmt> `&` <stmt>
+<program> --> `#`<stmt_list>`@`
+<stmt_list> --> { <stmt>`;`}
+<stmt> --> <if_stmt> | <while_loop> | <assignment> | <block> |  <declare> 
+<if_stmt> --> `$` `(`<bool_expr> `)` <stmt> [`&` <stmt>]
 <while_loop> --> `ROF` `(` <bool_expr> `)` <stmt>
 <assignment> --> `id` `=` <expr> `;`
+<block> --> `{`<stmt>`}`
+<declare> --> `varie` `id` 
 <expr> --> <term> {(`*`|`/`|`%`)} <term>
 <term> -->  <factor> {(`+`|`-`)} <factor>
 <factor> --> `id`| `int_lit`| `(`<expr>`)`
@@ -99,6 +94,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 <bex> --> <bterm> {(`*`|`/`|`%`)} <bterm>
 <bterm> --> <bfactor> {(`+`|`-`)} <bfactor>
 <bfactor> --> `id`|`int_lit`|`bool_lit`|`(`<bex>`)`
+
 
 ````
 
