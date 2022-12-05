@@ -130,7 +130,6 @@ Generally, ambiguous grammar has multiple places where they are generating the s
     xThree = (xOne + xTwo);
 
 @
-
 ````
 ### Test2.txt (Lexical Errors)
 
@@ -191,7 +190,7 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 @
 ````
 1) There is no semicolon after 3, which is needed to end an statement
-2) >> should have been just > 
+2) It should have been just > between apples and 4
 3) A closing parenthesis ) is missing after 4
 4) A closing } is missing after else statement
 5) No semicolon after bananas,  which is needed to end an statement
