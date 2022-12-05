@@ -2,7 +2,7 @@
 
 
 
-## A)Rules for Recognizing all lexemes as their proper tokens:
+## Rules for Recognizing all lexemes as their proper tokens:
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
 
@@ -82,7 +82,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |8 BYTES| [0-9]+L|
 
 
-## B)EBNF Rules for my language:
+## Production Rules for my language:
 
 ````
 <program> --> `#`<stmt_list>`@`
@@ -106,7 +106,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 ````
 
 
-## C)LL Grammar Test
+## LL Grammar Test
 
 In order to conform with the norms of LL Grammar, it should pass the pairwise disjoint test and no LHR.
 
@@ -137,7 +137,7 @@ My grammar does not have any rules that cause left hand recursion, in which a no
 
 
 
-## D)Ambiguity Check 
+## Ambiguity Check 
 
 Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. My grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
 
