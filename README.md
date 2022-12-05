@@ -230,3 +230,7 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 
 ## **LR Parse Table**:
 
+![input LR](https://user-images.githubusercontent.com/79378418/205547568-f4dc671c-9680-4f29-9a5b-9ee9f9884504.jpg)
+
+
+
