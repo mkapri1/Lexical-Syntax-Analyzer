@@ -185,7 +185,7 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 ````
 1) var188 is not the correct declaration of the variable as it contains digits.
 2) ~^ should have been just ~ 
-3) && is wrong, as else is jusr &
+3) && is wrong, as else is just &
 4) varOn should have been varOne
 5) Only one # should have been there in the start 
 
