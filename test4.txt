@@ -1,7 +1,13 @@
-int banana;
-banana =0;
-(($banana<0){
-    banana = banana *10;
-} & {
-    banana = banana *7/6 + 100
-}
+#
+    varie apples;
+    apple = 1 * 2 -3
+
+    $(apples >> 4 {
+        apples = 0;
+    } &{
+        apples = apples + 10;
+
+    varie bananas
+    bananas = (1+1 * 2;
+    
+@

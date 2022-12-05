@@ -1,4 +1,14 @@
 # 
-varie x = 1; 
-$(x>1){x = x + 1} &{x = x+2}
+    varie xOne;
+    xTwo = 3S;
+    varie xTwo;
+    xTwo = 4L;
+    ROF(xTwo > xOne){
+        xOne = xOne + One;
+        xTwo = xTwo + xOne;
+    }
+
+    varie xThree;
+    xThree = (xOne + xTwo);
+
 @

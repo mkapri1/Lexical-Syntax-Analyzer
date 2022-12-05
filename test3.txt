@@ -1,6 +1,14 @@
-hello world
-int hello;
-hello = 2;
-ROF(1>>2){
-    hello = hello *2 /6 +9
-}
+#
+    varie banana;
+    banana =0;
+
+    $(banana < 0){
+        banana = banana *10;
+    } & {
+        banana = banana *7/6 + 100;
+    }
+
+    varie basket;
+    basket = banana * 2;
+@
+
