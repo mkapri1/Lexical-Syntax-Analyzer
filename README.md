@@ -111,5 +111,92 @@ My grammar does not have any rules that cause left hand recursion, in which a no
 
 Generally, ambiguous grammar has multiple places where they are generating the same non-terminal in different positions. My grammar does not have any such non terminals which are in different positions. My grammar also passes the LR Parser Test. A grammar is LR(1) if the following two conditions are satisfied for each configurating set: 1. For any item in the set [A –> u•xv, a] with x a terminal, there is no item in the set of the form [B –> v•, x]. In the action table, this translates no shiftreduce conflict for any state. Also, there is no right hand or left hand recursion in this grammar.
 
+## Test Files
+
+### Test1.txt (No Lexical Errors)
+
+````
+# 
+    varie xOne;
+    xTwo = 3S;
+    varie xTwo;
+    xTwo = 4L;
+    ROF(xTwo > xOne){
+        xOne = xOne + One;
+        xTwo = xTwo + xOne;
+    }
+
+    varie xThree;
+    xThree = (xOne + xTwo);
+
+@
+
+````
+### Test2.txt (Lexical Errors)
+
+````
+##
+    varie var188;
+    var188 = 5 + ( 2 * 8);
+
+    varie varOne;
+    varOne = (4 * 8) + 1;
+
+    $(varOne ~^ 1){
+        varOne = 20;
+    } 
+    &&{
+        varOne = 30;
+    }
+
+    varie varTwo;
+    varTwo = varOn + 19;
+
+@
+````
+1) var188 is not the correct declaration of the variable as it contains digits.
+2) ~^ should have been just ~ 
+3) && is wrong, as else is jusr &
+4) varOn should have been varOne
+
+### Test3.txt (No Syntax Errors)
+````
+#
+    varie banana;
+    banana =0;
+
+    $(banana < 0){
+        banana = banana *10;
+    } & {
+        banana = banana *7/6 + 100;
+    }
+
+    varie basket;
+    basket = banana * 2;
+@
+````
+### Test4.txt (Syntaxical Errors)
+````
+#
+    varie apples;
+    apple = 1 * 2 -3
+
+    $(apples >> 4 {
+        apples = 0;
+    } &{
+        apples = apples + 10;
+
+    varie bananas
+    bananas = (1+1 * 2;
+@
+````
+1) There is no semicolon after 3, which is needed to end an statement
+2) >> should have been just > 
+3) A closing parenthesis ) is missing after 4
+4) A closing } is missing after else statement
+5) No semicolon after bananas,  which is needed to end an statement
+6) Closing parenthesis ) is missing after 2
+
+
 ## **LR Parse Table**:
 
