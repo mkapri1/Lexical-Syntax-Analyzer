@@ -2,7 +2,7 @@
 
 
 
-## A)Rules for Recognizing all lexemes as their proper tokens
+## A)Rules for Recognizing all lexemes as their proper tokens:
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
 
@@ -28,12 +28,12 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 
 |Keywords| Token Codes|
 |--------|------------|
-|int| 10
+|varie| 45
 |ROF| 32|
 |$| 33|
 |&| 34|
-|Start| 29|
-|Finish| 30|
+|#| 29|
+|$| 30|
 
 |Others|Token Codes|
 |------|-----------|
@@ -44,9 +44,9 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |End of Statement (;)| 31|
 
 **Regular Expressions:**
+
 |Tokens| Regex|
 |------|------|
-|Int_lit| int |
 |Addition| + |
 |Subraction| -|
 |Multiplication| *|
@@ -57,8 +57,8 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |WHILE| ROF|
 |IF| $|
 |ELSE| &|
-|BEGIN| Start|
-|END| Finish|
+|BEGIN| #|
+|END| @|
 |End of Statement| ;|
 |Greater than| >|
 |Less than| < |
@@ -67,11 +67,19 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 |Equal| ==|
 |Not Equal| != |
 |Assignment| = |
-|Variable Names| [_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z]?[_a-zA-Z]?|
-|Different int sizes| 1 BYTE: [0-9]+B   2 BYTES: [0-9]+S   4 BYTES: [0-9]+INT   8 BYTES: [0-9]+L|
 
+**Variable Names**
 
+`[_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z][_a-zA-Z]?[_a-zA-Z]?`
 
+**Different integer sizes**
+
+| Size | Regex |
+|------|-------|
+|1 BYTE| [0-9]+B|
+|2 BYTES| [0-9]+S|  
+|4 BYTES| [0-9]+I|
+|8 BYTES| [0-9]+L|
 
 
 ## B)EBNF Rules for my language:
@@ -84,7 +92,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 <while_loop> --> `ROF` `(` <bool_expr> `)` <stmt>
 <assignment> --> `id` `=` <expr> `;`
 <block> --> `{`<stmt>`}`
-<declare> --> `varie` `id` 
+<declare> --> `varie` `id` `;`
 <expr> --> <term> {(`*`|`/`|`%`)} <term>
 <term> -->  <factor> {(`+`|`-`)} <factor>
 <factor> --> `id`| `int_lit`| `(`<expr>`)`
@@ -102,10 +110,32 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 
 In order to conform with the norms of LL Grammar, it should pass the pairwise disjoint test and no LHR.
 
-The grammar for my language is pairwise disjoint. It checks for every possible terminal symbol for each rule a
-nonterminal has and makes sure they are all unique.Also, every first token in our grammar is unique which passes the pairwise disjoint test.
+The grammar for my language is pairwise disjoint. It checks for every possible terminal symbol for each rule a nonterminal has and makes sure they are all unique. Also, every first token in my grammar is unique which passes the pairwise disjoint test.
+
+Pairwise Disjoint Test
+````
+        FIRST(<program>) -> { # }
+        FIRST(<stmt_list>) -> { ROF, $, {, id, varie }	
+        FIRST(<stmt>) -> { ROF, $, {, id, varie }	
+        FIRST(<declare>) -> { varie }
+        FIRST(<assign>) -> { id }
+        FIRST(<while>) -> { ROF }
+        FIRST(<if_stmt>) -> { $ }
+        FIRST(<block>) -> { { }
+        FIRST(<expr>) -> { id, int_lit, (expr)}
+        FIRST(<term>) -> { id, int_lit, (expr)}
+        FIRST(factor) -> { id, int_lit, (expr)}
+        FIRST(bool_expr) -> (id, int_lit, bool_lit, (bex))
+        FIRST(rel) -> {id,int_lit,bool_lit,(bex)}
+        FIRST(bex) -> {id,int_lit,bool_lit,(bex)}
+        FIRST(bterm) -> {id,int_lit,bool_lit,(bex)}
+        FIRST(bfactor) -> {id,int_lit,bool_lit,(bex)} 
+
+````
 
 My grammar does not have any rules that cause left hand recursion, in which a nonterminal calls itself as the first character. No state here is calling itself, which proves there is no left hand recursion. In my grammar, there does not exist a non terminal that has multiple rules for one terminal. 
+
+
 
 ## D)Ambiguity Check 
 
