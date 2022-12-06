@@ -126,7 +126,7 @@ public class SyntaxAnalyzer extends LexicalAnalyzer{
         }
     }
 
-    //<block> --> `{`<stmt>`}`
+    //<block> --> `{`<stmt_list>`}`
     public static void block() throws IOException{
         if(nextToken != LEFT_CURLY){
             error();
