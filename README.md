@@ -91,7 +91,7 @@ In this language, the type of tokens can be divided into few classes: keywords, 
 <if_stmt> --> `$` `(`<bool_expr> `)` <stmt> [`&` <stmt>]
 <while_loop> --> `ROF` `(` <bool_expr> `)` <stmt>
 <assignment> --> `id` `=` <expr> `;`
-<block> --> `{`<stmt>`}`
+<block> --> `{`<stmt_list>`}`
 <declare> --> `varie` `id` `;`
 <expr> --> <term> {(`*`|`/`|`%`)} <term>
 <term> -->  <factor> {(`+`|`-`)} <factor>
