@@ -133,7 +133,7 @@ public class SyntaxAnalyzer extends LexicalAnalyzer{
         }
         else{
             lex();
-            stmt();
+            stmt_list();
             if(nextToken != RIGHT_CURLY){
                 error();
             }
