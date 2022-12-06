@@ -233,6 +233,12 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 ### **Rule Base**:
 ![Untitled 5](https://user-images.githubusercontent.com/79378418/205786934-c7deeb20-811b-47e3-a987-d92effb7362c.jpg)
 
+### **LR Table**:
+![11](https://user-images.githubusercontent.com/79378418/205791641-8ccc3f2a-c698-4f49-9565-cc544af628f2.jpg)
+
+![222](https://user-images.githubusercontent.com/79378418/205791652-4b0afc2d-a6a7-414c-b9e0-6778c195f482.jpg)
+
+![333](https://user-images.githubusercontent.com/79378418/205791662-2ab5623a-4f67-43a8-aba0-95aca15acbb3.jpg)
 
 ### **Code Samples/Input**:
 
