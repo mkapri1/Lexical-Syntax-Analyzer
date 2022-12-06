@@ -155,7 +155,7 @@ class LexicalAnalyzer {
 
     }
    
-    //checking digits and letters to determine char class
+    //Checking digits and letters to determine char class
     public static void getChar() throws IOException{
         System.out.println();
         int i;
@@ -176,7 +176,7 @@ class LexicalAnalyzer {
         }
     }
 
-    //to remove white spaces
+    //To remove white spaces
     public static void getNonBlank() throws IOException{
         while(Character.isWhitespace(nextChar)){
             getChar();
