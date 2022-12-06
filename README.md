@@ -1,6 +1,13 @@
 # Lexical and Syntax Analyzer 
 
 
+## Test 2 Redo Corrections (72/100):
+1. Fixed my grammar where I got points off (-2)
+2. Fixed my test files (all correct now) (-4)
+3. Attached the correct LR Table with code samples (all correct now) (-10)
+4. Added the syntax analyzer which was missing earlier (-10)
+5. Fixed my lexical analyzer (-2)
+
 
 ## Rules for Recognizing all lexemes as their proper tokens:
 
@@ -258,9 +265,4 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 
 ![Untitled 6](https://user-images.githubusercontent.com/79378418/205882293-1eae141d-85c1-4e6c-b301-bbae72362e54.jpg)
 
-## Test 2 Redo Corrections (72/100):
-1. Fixed my grammar where I got points off
-2. Fixed my test files (all correct now) 
-3. Attached the correct LR Table with code samples (all correct now) (-10)
-4. Added the syntax analyzer which was missing earlier (-10)
-5. Fixed my lexical analyzer 
+
