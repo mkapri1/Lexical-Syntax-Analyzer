@@ -234,3 +234,9 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 ![Untitled 5](https://user-images.githubusercontent.com/79378418/205786934-c7deeb20-811b-47e3-a987-d92effb7362c.jpg)
 
 
+### **Code Samples/Input**:
+
+![Input1](https://user-images.githubusercontent.com/79378418/205790140-d96f57c3-afd9-4f8b-b722-a3894b44cd89.jpg)
+
+![Input2](https://user-images.githubusercontent.com/79378418/205790151-55535403-5d0b-4524-b3cb-6924e72c9af9.jpg)
+
