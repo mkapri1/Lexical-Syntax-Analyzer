@@ -242,7 +242,7 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 
 ### **Code Samples/Input**:
 
-**Pass**:
+#### **Pass**:
 
 ![Input1](https://user-images.githubusercontent.com/79378418/205790140-d96f57c3-afd9-4f8b-b722-a3894b44cd89.jpg)
 
@@ -250,8 +250,10 @@ Generally, ambiguous grammar has multiple places where they are generating the s
 
 ![INPUT44](https://user-images.githubusercontent.com/79378418/205881338-95f1124a-3182-4801-8b0c-51f66e6c3384.jpg)
 
-**Fail**:
+#### **Fail**:
 
 ![INPUT55](https://user-images.githubusercontent.com/79378418/205881355-652bdbf0-7b77-4c58-8045-6d92f0061281.jpg)
 
 ![Input2](https://user-images.githubusercontent.com/79378418/205790151-55535403-5d0b-4524-b3cb-6924e72c9af9.jpg)
+
+![Untitled 6](https://user-images.githubusercontent.com/79378418/205882293-1eae141d-85c1-4e6c-b301-bbae72362e54.jpg)
