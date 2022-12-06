@@ -122,14 +122,14 @@ Pairwise Disjoint Test
         FIRST(<while>) -> { ROF }
         FIRST(<if_stmt>) -> { $ }
         FIRST(<block>) -> { { }
-        FIRST(<expr>) -> { id, int_lit, (expr)}
-        FIRST(<term>) -> { id, int_lit, (expr)}
-        FIRST(factor) -> { id, int_lit, (expr)}
-        FIRST(bool_expr) -> (id, int_lit, bool_lit, (bex))
-        FIRST(rel) -> {id,int_lit,bool_lit,(bex)}
-        FIRST(bex) -> {id,int_lit,bool_lit,(bex)}
-        FIRST(bterm) -> {id,int_lit,bool_lit,(bex)}
-        FIRST(bfactor) -> {id,int_lit,bool_lit,(bex)} 
+        FIRST(<expr>) -> { id, int_lit, (}
+        FIRST(<term>) -> { id, int_lit, (}
+        FIRST(factor) -> { id, int_lit, (}
+        FIRST(bool_expr) -> (id, int_lit, bool_lit, ()
+        FIRST(rel) -> {id,int_lit,bool_lit,(}
+        FIRST(bex) -> {id,int_lit,bool_lit,(}
+        FIRST(bterm) -> {id,int_lit,bool_lit,(}
+        FIRST(bfactor) -> {id,int_lit,bool_lit,(} 
 
 ````
 
