@@ -160,7 +160,7 @@ class LexicalAnalyzer {
         System.out.println();
         int i;
         if((i = fr.read()) != -1){
-            if(Character.isLetter((char)i) || (char)i == '_'){
+            if(Character.isLetter((char)i) || (char)i == '_' || (char)i == '#' || (char)i == '$' || (char)i == '&' || (char)i == '@'{
                 charClass = LETTER;
             }
             else if(Character.isDigit((char)i)){
