@@ -1,7 +1,7 @@
 # Lexical and Syntax Analyzer 
 
 
-### Test 2 Redo Corrections (72/100):
+### Test 2 Redo Corrections (72/100) (-28):
 1. Fixed my grammar where I got points off (-2)
 2. Fixed my test files (all correct now) (-4)
 3. Attached the correct LR Table with code samples (all correct now) (-10)
