@@ -7,10 +7,16 @@ public class SyntaxAnalyzer extends LexicalAnalyzer{
         if(nextToken == BEGIN){
             lex();
         }
+       else{
+          error();
+       }
         stmt_list();
         if(nextToken == END){
             lex();
         }
+       else{
+          error();
+       }
     }
 
     //<stmt_list> --> { <stmt>`;`}
@@ -20,6 +26,9 @@ public class SyntaxAnalyzer extends LexicalAnalyzer{
             lex();
             stmt();
         }
+       else{
+          error();
+       }
     }
 
     //<stmt> --> <if_stmt> | <while_loop> | <assignment> | <block> | <declare>
