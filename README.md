@@ -1,14 +1,5 @@
 # Lexical and Syntax Analyzer 
 
-
-### Test 2 Redo Corrections (72/100) (-28):
-1. Fixed my grammar where I got points off (-2)
-2. Fixed my test files (all correct now) (-4)
-3. Attached the correct LR Table with code samples (all correct now) (-10)
-4. Added the syntax analyzer which was missing earlier (-10)
-5. Fixed my lexical analyzer (-2)
-
-
 ## Rules for Recognizing all lexemes as their proper tokens:
 
 Tokens are a group of characters formingbasic, atomic chunk of syntax a "word"
